@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script type="text/javascript">
+             var myApp= angular.module("demo",[]);
+			 myApp.controller('demoCtrl',function($scope,$http){
+				var promise=$http.get("todo.json");
+				promise.success(function(data){
+					$scope.todos=data;
+					});
+				});
+        </script>
+	</head>
+
+<body ng-controller="demoCtrl">
+	<div class="panel">
+		<h1>
+			To do
+		</h1>
+		<table class="table">
+			<tr>
+				<th>Action</th>
+				<th>Done</th>
+			</tr>
+			<tr ng-repeat="t in todos">
+				<td>{{t.action}}</td>
+				<td>{{t.done}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

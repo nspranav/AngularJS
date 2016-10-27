@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Directives</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>
+        angular.module("exampleApp", [])
+        .controller("defaultCtrl", function ($scope, $location) {
+            $scope.dataValue  = false;
+        });
+    </script>
+
+</head>
+<body>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+    <h3 class="panel-header">To Do List</h3>
+        <div class="checkbox well">
+            <label>
+                <input type="checkbox" ng-model="dataValue" />
+                Set the Data Value
+            </label>
+        </div>
+    <button class="btn btn-success" ng-disabled="dataValue">My Button</button>
+    </div>
+</body>
+</html>
